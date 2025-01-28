@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: hogwarts-eureka-server-development
+spec:
+  selector:
+    matchLabels:
+      app: hogwarts-eureka-server
+  replicas: 1 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: hogwarts-eureka-server
+    spec:
+      containers:
+        - name: hogwarts-eureka-server
+          image: puneeth0/hogwarts-eureka-server # Image that will be used to containers in the cluster
+          #imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8761 # The port that the container is running on in the cluster

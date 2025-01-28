@@ -1,0 +1,56 @@
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:21-jdk-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the application JAR file
+COPY target/hogwarts-eureka-server.jar /app/hogwarts-eureka-server.jar
+
+# Expose the application port
+EXPOSE 8761
+
+# Command to run the application
+CMD ["java", "-jar", "hogwarts-eureka-server.jar"]
+
+#
+#docker run -d -p 9090:8080 --name spring-demo spring-demo:1.0
+#docker tag spring-demo:1.0 puneeth0/spring-demo:1.0
+#docker push puneeth0/spring-demo:1.0
+#docker pull puneeth0/spring-demo
+#docker run
+#docker build -t spring-demo:1.0 .
+
+# minikube start
+# minikube docker-env
+# minikube start --driver=docker
+# minikube status
+# kubectl cluster-info
+# kubectl get node
+# @FOR /f "tokens=*" %i IN ('minikube -p minikube docker-env --shell cmd') DO @%i
+# docker images
+# docker build -t spring-demo:1.0 .
+# kubectl create deployment spring-demo --image=spring-demo:1.0 --port=8080
+# kubectl get deployment
+# kubectl describe deployment spring-demo
+# kubectl get pods
+# kubectl logs pod-name
+# kubectl get deployments
+# kubectl expose deployment spring-demo --type=NodePort
+# kubectl get service
+# minikube service spring-demo --url
+# http://127.0.0.1:65137/potter/characters
+# minikube dashboard
+# kubectl delete service spring-demo
+# kubectl delete deployment spring-demo
+# minikube stop
+# minikube delete
+# eval $(minikube docker-env)
+
+#kubectl logs spring-demo-789abcd-xyz
+#kubectl logs --tail=100 spring-demo-789abcd-xyz
+#kubectl logs -f spring-demo-789abcd-xyz
+#kubectl logs -f spring-demo-789abcd-xyz
+# for multiple pods
+#kubectl logs -f -l app=spring-demo
+

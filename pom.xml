@@ -90,6 +90,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>hogwarts-eureka-server</finalName>
 	</build>
 
 </project>
